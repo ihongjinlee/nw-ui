@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  max-width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 스크롤바의 기본 스타일링 */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* 스크롤바 트랙 */
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+/* 스크롤바 그립 */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+/* 스크롤바 그립 호버 시 스타일 */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(250 204 21);
+}
