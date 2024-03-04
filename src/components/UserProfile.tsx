@@ -3,6 +3,7 @@
 import { User } from '@/model/user';
 import Avatar from './Avatar';
 import { useSession, signOut } from 'next-auth/react';
+import { generateRandomString } from '@/util/str';
 
 type Props = {
   user: User;
@@ -23,10 +24,12 @@ export default function UserProfile({ user }: Props) {
       <div className='md:ml-10 text-center'>
         <div className='flex flex-col items-center md:flex-row'>
           <h1 className='text-2xl md:mr-8 my-2 md:mb-0 dark:text-gray-300 '>
-            {name} / {team.toLocaleUpperCase()}팀
+            {generateRandomString(name.length)} / {team.toLocaleUpperCase()}팀
           </h1>
         </div>
-        <p className='text-xl md:text-start dark:text-gray-500'>{username}</p>
+        <p className='text-xl md:text-start dark:text-gray-500'>
+          {generateRandomString(username.length)}
+        </p>
         {session && user.username === session.user.username ? (
           <button
             className='text-white w-full bg-[#4285F4] hover:bg-[#4285F4]/90 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 mt-2'

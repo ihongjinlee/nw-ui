@@ -11,6 +11,7 @@ import { useState } from 'react';
 import ModalPortal from './ui/ModalPortal';
 import PostModal from './PostModal';
 import PostDetailTag from './PostDetailTag';
+import { generateRandomString } from '@/util/str';
 
 type Props = {
   post: Post;
@@ -61,7 +62,7 @@ export default function PostListCard({ post, priority = false }: Props) {
           <button
             className='mx-2 mt-2 text-3xl font-bold hover:text-yellow-500'
             onClick={handleCopyToClipboard}
-          >{`${upkfla}`}</button>
+          >{`${generateRandomString(upkfla.length)}`}</button>
           <div className='flex mt-4 gap-2 p-1'>
             {uiurl && (
               <a href={uiurl} target='_blank'>
@@ -151,7 +152,7 @@ export default function PostListCard({ post, priority = false }: Props) {
           {images?.map((image, index) => (
             <li key={index}>
               <Image
-                className='rounded-lg'
+                className='rounded-lg blur-sm'
                 src={image}
                 alt={`photo by poohoot`}
                 width={1920}

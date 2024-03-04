@@ -3,14 +3,19 @@ type AvatarSize = 'small' | 'medium' | 'large' | 'xlarge';
 type Props = {
   image?: string | null;
   size?: AvatarSize;
+  blur?: string | null;
 };
 
-export default function Avatar({ image, size = 'large' }: Props) {
+export default function Avatar({
+  image,
+  size = 'large',
+  blur = 'blur-sm',
+}: Props) {
   return (
     <div className={`${getContainerStyle(size)}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className={`rounded-full ${getImageSizeStyle(size).image}`}
+        className={`rounded-full ${blur} ${getImageSizeStyle(size).image}`}
         alt='user profile'
         src={image ?? undefined}
         referrerPolicy='no-referrer'
